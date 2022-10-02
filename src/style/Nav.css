@@ -1,0 +1,50 @@
+#nav-container {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+  width: 100vw;
+  height: 5vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#page-title {
+  font-size: 2.5em;
+  height: 5vh;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
+  height: 5vh;
+  margin: 0;
+}
+
+a {
+  height: 5vh;
+  color: #3BF4FB;
+  text-decoration: none;
+}
+
+a:focus {
+  color: #CAFF8A;
+  font-size: 1.5em;
+  background-color: rgb(59, 244, 251, 0.1);
+  padding: 0.5%;
+}
+
+a:hover {
+  color: #CAFF8A;
+  font-size: 1.5em;
+  background-color: rgb(59, 244, 251, 0.1);
+  padding: 0.5%;
+}
+
+a:selection {
+  color: #CAFF8A;
+  font-size: 1.5em;
+  background-color: rgb(59, 244, 251, 0.1);
+  padding: 0.5%;
+}
