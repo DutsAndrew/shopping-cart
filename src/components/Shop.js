@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import '../style/Shop.css';
+import SearchBar from "./SearchBar";
 
 const Shop = props => {
+
+  const [cart, setCart] = useState({});
 
   // async function getSteamGames() {
   //   const api = 'https://steam2.p.rapidapi.com/search/specials/page/1';
@@ -25,9 +28,22 @@ const Shop = props => {
 
   // getSteamGames();
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const inputValue = document.querySelector('#search-input').value;
+
+    // validation
+    if (!inputValue.length) {
+      return;
+    };
+
+
+    console.log(inputValue);
+  }
+
   return (
-    <div>
-      <p>Shop</p>
+    <div id="shop-container">
+      <SearchBar submit={onSubmit} />
     </div>
   );
 };

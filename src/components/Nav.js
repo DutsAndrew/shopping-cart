@@ -17,9 +17,6 @@ const Nav = props => {
       <Link to='/Shop'>
         <p className="nav-item">Shop</p>
       </Link>
-      <Link to='/Favorites'>
-        <p className="nav-item">Favorites</p>
-      </Link>
       <Link to='/Cart'>
         <img id="shopping-cart-svg" className="nav-item" src={shoppingCart} alt="shopping cart"></img>
       </Link>

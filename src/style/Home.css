@@ -1,0 +1,10 @@
+#home-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex: auto;
+  width: 100vw;
+  height: 85vh;
+  font-size: 1.25em;
+}
