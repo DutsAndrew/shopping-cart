@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import '../style/Nav.css';
 import { Link } from "react-router-dom";
+import shoppingCart from '../assets/cart.svg';
+import steamIcon from '../assets/steam.png';
 
 const Nav = props => {
   return (
     <div id="nav-container">
-      <p id="page-title">Shopping Cart</p>
+      <div id="page-title-container">
+        <p id="page-title">Steam Lite</p>
+        <img id="steam-icon" src={steamIcon} alt="steam icon"></img>
+      </div>
       <Link to='/Home'>
         <p className="nav-item">Home</p>
       </Link>
@@ -16,7 +21,7 @@ const Nav = props => {
         <p className="nav-item">Favorites</p>
       </Link>
       <Link to='/Cart'>
-        <p className="nav-item">Cart</p>
+        <img id="shopping-cart-svg" className="nav-item" src={shoppingCart} alt="shopping cart"></img>
       </Link>
     </div>
   );

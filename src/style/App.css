@@ -1,4 +1,17 @@
 body {
-  background-color: #826AED;
-  color: #CAFF8A
+  background-color: #2a475e;
+  color: #c7d5e0;
+  font-family: sans-serif, Arial, Helvetica, Verdana
+}
+
+#game-banner-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-banner {
+  width: 90vw;
+  height: 85vh;
 }
