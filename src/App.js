@@ -8,13 +8,29 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
 const App = () => {
+
+  const [cart, setCart] = useState({
+    cart: [],
+    total: 0,
+  });
+
+  const addItem = (e) => {
+    const gameImg = e.target.parentElement.children[0].currentSrc;
+    const gameTitle = e.target.parentElement.children[1].innerText;
+    const gamePrice = convertGamePrice(e.target.parentElement.children[2].innerText);
+  }
+
+  const convertGamePrice = (price) => {
+    console.log(price);
+  }
+
   return (
     <BrowserRouter>
       <Nav />
       <Routes>
         <Route path='/' element={<Hero />} />
         <Route path='/Home' element={<Home />} />
-        <Route path='/Shop' element={<Shop />} />
+        <Route path='/Shop' element={<Shop addItem={addItem} />} />
         <Route path='/Cart' element={<Cart />} />
       </Routes>
       <Footer />

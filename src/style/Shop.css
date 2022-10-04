@@ -6,3 +6,64 @@
   width: 100vw;
   height: 85vh;
 }
+
+#game-tiles {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex: auto;
+  margin: 0;
+  margin-top: 2%;
+  width: 100vw;
+  height: auto;
+  gap: 2%;
+}
+
+.game-card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2%;
+  width: 25vw;
+  height: 30vh;
+  background-color: rgb(199, 213, 224, 0.1);
+}
+
+.game-card-img {
+  width: 15vw;
+  height: 10vh;
+}
+
+.game-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 3vh;
+  font-size: 1em;
+}
+
+.game-card-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 2vh;
+  font-size: 0.75em;
+}
+
+.game-card-add-to-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 3vh;
+  margin-top: 4%;
+  font-size: 1em;
+  background-color: #66c0f4;
+  color: #1b2838;
+}
