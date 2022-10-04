@@ -14,12 +14,25 @@ const App = () => {
     total: 0,
   });
 
+  class Game {
+    constructor(img, title, price) {
+      this.img = img;
+      this.title = title;
+      this.price = price;
+    }
+  }
+
   const addItem = (e) => {
+    const currentCart = cart.cart;
     const gameImg = e.target.parentElement.children[0].currentSrc;
     const gameTitle = e.target.parentElement.children[1].innerText;
     const gamePrice = e.target.parentElement.children[2].innerText;
-    console.log(gamePrice);
-  }
+    const newGame = new Game(gameImg, gameTitle, gamePrice);
+    setCart({
+      cart: [...currentCart, newGame],
+    });
+    console.log(cart);
+  };
 
   return (
     <BrowserRouter>
@@ -30,7 +43,7 @@ const App = () => {
         <Route path='/Shop' element={<Shop addItem={addItem} />} />
         <Route path='/Cart' element={<Cart />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };

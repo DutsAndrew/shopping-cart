@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2%;
+  gap: 1%;
   width: 100vw;
 }
 
-#search-label, #search-input, #search-button {
+#search-input {
   font-size: 1.5em;
 }
 
@@ -15,6 +15,9 @@
 }
 
 #search-button {
+  height: 3vh;
+  width: 10vw;
+  font-size: 1em;
   background-color: #66c0f4;
   color: #1b2838;
 }
