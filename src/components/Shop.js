@@ -41,6 +41,47 @@ const Shop = props => {
     }
   }, []);
 
+  const convertGamePrice = (apiPrice) => {
+    const price = apiPrice.trim();
+
+    // base case, no changes needed
+    if (price.length === 0) {
+      return 'No Price Listed';
+    }
+
+    if (price === 'Free To Play'
+      || price === 'Free Demo'
+      ) {
+        return price;
+    } 
+
+    // conversion from Euros to Dollars
+    const dollarSymbol = '$';
+
+    if (price.length === 5
+      || price.length === 6
+      || price.length === 7
+      || price.length === 9
+      ) {
+        const removeEuroSymbol = price.replaceAll('€', '');
+        const replaceComma = removeEuroSymbol.replaceAll(',', '.');
+        const replaceHyphen = replaceComma.replaceAll('-', '');
+        const removeWhiteSpace = replaceHyphen.replaceAll(' ', '');
+        return dollarSymbol + removeWhiteSpace;
+    }
+
+    // handles cases were marked down and original price are both present
+    if (price !== 'Free To Play'
+      && (price.length === 10 
+      || price.length === 11
+      || price.length === 12)
+      ) {
+        const removeOriginalPrice = price.split('€')[1];
+        const removeComma = removeOriginalPrice.replaceAll(',', '.');
+        return dollarSymbol + removeComma;
+    }
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
     const inputValue = document.querySelector('#search-input').value;
@@ -59,7 +100,7 @@ const Shop = props => {
             return <div className='game-card' key={game.appId} >
               <img className='game-card-img' src={game.imgUrl} alt={game.title} ></img>
               <p className='game-card-title' >{game.title}</p>
-              <p className='game-card-price' >{game.price}</p>
+              <p className='game-card-price' >{convertGamePrice(game.price)}</p>
               <button type="submit" className="game-card-add-to-cart" onClick={addItem} >Add to Cart</button>
             </div>
           })}

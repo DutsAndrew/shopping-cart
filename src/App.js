@@ -17,11 +17,8 @@ const App = () => {
   const addItem = (e) => {
     const gameImg = e.target.parentElement.children[0].currentSrc;
     const gameTitle = e.target.parentElement.children[1].innerText;
-    const gamePrice = convertGamePrice(e.target.parentElement.children[2].innerText);
-  }
-
-  const convertGamePrice = (price) => {
-    console.log(price);
+    const gamePrice = e.target.parentElement.children[2].innerText;
+    console.log(gamePrice);
   }
 
   return (
