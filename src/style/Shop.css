@@ -29,7 +29,7 @@
   align-content: center;
   margin-bottom: 2%;
   width: 25vw;
-  height: 30vh;
+  height: 35vh;
   background-color: rgb(199, 213, 224, 0.1);
 }
 
@@ -51,7 +51,25 @@
   justify-content: center;
   align-items: center;
   width: 20vw;
-  font-size: 0.8em;
+  font-size: 0.95em;
+}
+
+#game-quantity-form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 5%;
+}
+
+#quantity-input-container {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 1%;
+}
+
+.game-card-quantity {
+  width: 3vw;
+  background-color: #c7d5e0;
 }
 
 .game-card-add-to-cart {
@@ -63,5 +81,5 @@
   margin-top: 2%;
   font-size: 1em;
   background-color: #66c0f4;
-  color: #1b2838;
+  color: #2a475e;
 }

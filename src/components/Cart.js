@@ -4,7 +4,11 @@ import '../style/Cart.css';
 const Cart = props => {
 
   const { cart } = props;
-  console.log(cart);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+  
 
   return (
     <div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../style/Shop.css';
 import SearchBar from "./SearchBar";
+import { convertGamePrice } from "../scripts/shop-helper-functions";
 
 const Shop = props => {
 
@@ -41,51 +42,6 @@ const Shop = props => {
     }
   }, []);
 
-  const convertGamePrice = (apiPrice) => {
-    const price = apiPrice.trim();
-
-    // base case, no changes needed
-    if (price.length === 0) {
-      return 'No Price Listed';
-    }
-
-    if (price === 'Free to Play'
-      || price === 'Free To Play'
-      || price === 'Free Demo'
-      ) {
-        return price;
-    } 
-
-    // conversion from Euros to Dollars
-    const dollarSymbol = '$';
-
-    if (price.length === 5
-      || price.length === 6
-      || price.length === 7
-      || price.length === 9
-      ) {
-        const removeEuroSymbol = price.replaceAll('€', '');
-        const replaceComma = removeEuroSymbol.replaceAll(',', '.');
-        const replaceHyphen = replaceComma.replaceAll('-', '');
-        const removeWhiteSpace = replaceHyphen.replaceAll(' ', '');
-        return dollarSymbol + removeWhiteSpace;
-    }
-
-    // handles cases were marked down and original price are both present
-    if (price !== 'Free to Play'
-      && price !== 'Free To Play'
-      && (price.length === 10 
-      || price.length === 11
-      || price.length === 12)
-      ) {
-        const removeOriginalPrice = price.split('€')[1];
-        const removeComma = removeOriginalPrice.replace(',', '.');
-        return dollarSymbol + removeComma;
-    }
-
-    return price;
-  }
-
   const onSubmit = (e) => {
     e.preventDefault();
     const inputValue = document.querySelector('#search-input').value;
@@ -105,7 +61,13 @@ const Shop = props => {
               <img className='game-card-img' src={game.imgUrl} alt={game.title} ></img>
               <p className='game-card-title' >{game.title}</p>
               <p className='game-card-price' >{convertGamePrice(game.price)}</p>
-              <button type="submit" className="game-card-add-to-cart" onClick={addItem} >Add to Cart</button>
+              <form id="game-quantity-form">
+                <div id="quantity-input-container">
+                  <label className="game-card-quantity-label" >Quantity:</label>
+                  <input className="game-card-quantity" type='number' placeholder="0" onSubmit={addItem} ></input>
+                </div>
+                <button type="submit" className="game-card-add-to-cart" onClick={addItem} >Add to Cart</button>
+              </form>
             </div>
           })}
       </ul>

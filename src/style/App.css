@@ -5,7 +5,9 @@ body {
 }
 
 #game-banner-container {
+  position: absolute;
   width: 100vw;
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
