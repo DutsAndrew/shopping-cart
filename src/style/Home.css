@@ -1,10 +1,17 @@
 #home-container {
+  position: absolute;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: center;
   flex: auto;
+  margin-top: 10%;
   width: 100vw;
   height: 85vh;
   font-size: 1.25em;
+}
+
+#disclaimer-message {
+  margin-top: 10%;
+  font-size: 0.75em;
 }

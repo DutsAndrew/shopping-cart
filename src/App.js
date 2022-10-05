@@ -19,6 +19,7 @@ const App = () => {
       this.img = img;
       this.title = title;
       this.price = price;
+      this.amount = 1;
     }
   }
 
@@ -31,7 +32,6 @@ const App = () => {
     setCart({
       cart: [...currentCart, newGame],
     });
-    console.log(cart);
   };
 
   return (
@@ -41,7 +41,7 @@ const App = () => {
         <Route path='/' element={<Hero />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Shop' element={<Shop addItem={addItem} />} />
-        <Route path='/Cart' element={<Cart />} />
+        <Route path='/Cart' element={<Cart cart={cart} />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
