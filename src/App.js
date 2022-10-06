@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Hero from "./components/Hero";
@@ -8,22 +8,16 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { wasGameAlreadyAdded } from "./scripts/app-helper-functions";
 import { itemAddedAnimation } from "./scripts/app-helper-functions";
+import { Game } from "./scripts/app-helper-functions";
+import { displayCartAmount } from "./scripts/app-helper-functions";
 
 const App = () => {
 
   const [cart, setCart] = useState({
     cart: [],
+    quantity: 0,
     total: 0,
   });
-
-  class Game {
-    constructor(img, title, price, quantity) {
-      this.img = img;
-      this.title = title;
-      this.price = price;
-      this.quantity = quantity;
-    }
-  }
 
   const addItem = (e) => {
     e.preventDefault();
@@ -52,10 +46,15 @@ const App = () => {
 
     setCart({
       cart: [...currentCart, newGame],
+      quantity: cart.quantity += Number(gameQuantity),
     });
-    
-    itemAddedAnimation();
+
+    itemAddedAnimation(e.target.parentElement.parentElement);
   };
+
+  useEffect(() => {
+    displayCartAmount(cart.quantity);
+  }, [cart])
 
   return (
     <BrowserRouter>
