@@ -16,8 +16,8 @@ const Shop = props => {
     games: [],
   });
 
+  // default game load when entering shop
   useEffect(() => {
-    // startLoadStatus();
     const options = {
       method: 'GET',
       headers: {
@@ -36,10 +36,40 @@ const Shop = props => {
         .catch(error => setApiStatus({
           errorStatus: error
         }));
-        console.log('api fetched');
       })();
     }
   }, []);
+
+  // when user requests a certain game
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setApiStatus({
+      status: false,
+    });
+    const inputValue = document.querySelector('#search-input').value;
+    const apiCall = 'https://steam2.p.rapidapi.com/search/';
+    const page = '/page/1';
+    const fetchRequest = apiCall + inputValue + page;
+    
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'dabbbf5224msheae4d25cbe18976p11eaf7jsn7e8d500a641f',
+        'X-RapidAPI-Host': 'steam2.p.rapidapi.com'
+      }
+    };
+
+    (async function fetchSearchInput() {
+      fetch(fetchRequest, options)
+      .then(response => response.json())
+      .then(response => setGameLibrary({
+        games: [response]
+      }))
+      .catch(error => setApiStatus({
+        errorStatus: error
+      }));
+    })();
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,13 +79,7 @@ const Shop = props => {
     }, 1500);
   }, [gameLibrary])
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const inputValue = document.querySelector('#search-input').value;
-  }
-
   if (apiStatus.status === false) {
-    console.log('loading');
     return (
       <div id="loading-container">
         <p id="loading-message">
@@ -67,7 +91,6 @@ const Shop = props => {
   }
 
   if (apiStatus.status === true) {
-    // endLoadStatus();
     return (
       <div id="shop-container">
         <SearchBar submit={onSubmit} />

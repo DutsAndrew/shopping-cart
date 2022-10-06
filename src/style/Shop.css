@@ -119,15 +119,15 @@
 }
 
 @keyframes fade {
-  0% {background-image: linear-gradient(to right, #66c0f4 0%, #2a475e 0)}
-  10% {background-image: linear-gradient(to right, #66c0f4 10%, #2a475e 0)}
-  20% {background-image: linear-gradient(to right, #66c0f4 20%, #2a475e 0)}
-  30% {background-image: linear-gradient(to right, #66c0f4 30%, #2a475e 0)}
-  40% {background-image: linear-gradient(to right, #66c0f4 40%, #2a475e 0)}
-  50% {background-image: linear-gradient(to right, #66c0f4 50%, #2a475e 0)}
-  60% {background-image: linear-gradient(to right, #66c0f4 60%, #2a475e 0)}
-  70% {background-image: linear-gradient(to right, #66c0f4 70%, #2a475e 0)}
-  80% {background-image: linear-gradient(to right, #66c0f4 80%, #2a475e 0)}
-  90% {background-image: linear-gradient(to right, #66c0f4 90%, #2a475e 0)}
-  100% {background-image: linear-gradient(to right, #66c0f4 100%, #2a475e 0)}
+  0% {background-image: linear-gradient(to right, #66c0f4 0%, #c7d5e0 0)}
+  10% {background-image: linear-gradient(to right, #66c0f4 10%, #c7d5e0 0)}
+  20% {background-image: linear-gradient(to right, #66c0f4 20%, #c7d5e0 0)}
+  30% {background-image: linear-gradient(to right, #66c0f4 30%, #c7d5e0 0)}
+  40% {background-image: linear-gradient(to right, #66c0f4 40%, #c7d5e0 0)}
+  50% {background-image: linear-gradient(to right, #66c0f4 50%, #c7d5e0 0)}
+  60% {background-image: linear-gradient(to right, #66c0f4 60%, #c7d5e0 0)}
+  70% {background-image: linear-gradient(to right, #66c0f4 70%, #c7d5e0 0)}
+  80% {background-image: linear-gradient(to right, #66c0f4 80%, #c7d5e0 0)}
+  90% {background-image: linear-gradient(to right, #66c0f4 90%, #c7d5e0 0)}
+  100% {background-image: linear-gradient(to right, #66c0f4 100%, #c7d5e0 0)}
 }
