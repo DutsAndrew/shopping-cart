@@ -9,7 +9,7 @@ const Shop = props => {
 
   const [apiStatus, setApiStatus] = useState({
     status: false,
-    errorStatus: false,
+    errorStatus: null,
   });
 
   const [gameLibrary, setGameLibrary] = useState({
@@ -17,6 +17,7 @@ const Shop = props => {
   });
 
   useEffect(() => {
+    // startLoadStatus();
     const options = {
       method: 'GET',
       headers: {
@@ -35,44 +36,60 @@ const Shop = props => {
         .catch(error => setApiStatus({
           errorStatus: error
         }));
-        setApiStatus({
-          status: true,
-        });
+        console.log('api fetched');
       })();
     }
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setApiStatus({
+        status: true,
+      });
+    }, 1500);
+  }, [gameLibrary])
+
   const onSubmit = (e) => {
     e.preventDefault();
     const inputValue = document.querySelector('#search-input').value;
-
-    // validation
-    if (!inputValue.length) {
-      return;
-    };
   }
 
-  return (
-    <div id="shop-container">
-      <SearchBar submit={onSubmit} />
-      <ul id='game-tiles'>
-          {Array.isArray(gameLibrary.games[0]) && gameLibrary.games[0].map((game) => {
-            return <div className='game-card' key={game.appId} >
-              <img className='game-card-img' src={game.imgUrl} alt={game.title} ></img>
-              <p className='game-card-title' >{game.title}</p>
-              <p className='game-card-price' >{convertGamePrice(game.price)}</p>
-              <form id="game-quantity-form">
-                <div id="quantity-input-container">
-                  <label className="game-card-quantity-label" >Quantity:</label>
-                  <input className="game-card-quantity" type='number' placeholder="0" onSubmit={addItem} ></input>
-                </div>
-                <button type="submit" className="game-card-add-to-cart" onClick={addItem} >Add to Cart</button>
-              </form>
-            </div>
-          })}
-      </ul>
-    </div>
-  );
+  if (apiStatus.status === false) {
+    console.log('loading');
+    return (
+      <div id="loading-container">
+        <p id="loading-message">
+          Loading!
+        </p>
+        <div id="loading-bar"></div>
+      </div>
+    )
+  }
+
+  if (apiStatus.status === true) {
+    // endLoadStatus();
+    return (
+      <div id="shop-container">
+        <SearchBar submit={onSubmit} />
+        <ul id='game-tiles'>
+            {Array.isArray(gameLibrary.games[0]) && gameLibrary.games[0].map((game) => {
+              return <div className='game-card' key={game.appId} >
+                <img className='game-card-img' src={game.imgUrl} alt={game.title} ></img>
+                <p className='game-card-title' >{game.title}</p>
+                <p className='game-card-price' >{convertGamePrice(game.price)}</p>
+                <form id="game-quantity-form">
+                  <div id="quantity-input-container">
+                    <label className="game-card-quantity-label" >Quantity:</label>
+                    <input className="game-card-quantity" type='number' min={0} placeholder="0" onSubmit={addItem} ></input>
+                  </div>
+                  <button type="submit" className="game-card-add-to-cart" onClick={addItem} >Add to Cart</button>
+                </form>
+              </div>
+            })}
+        </ul>
+      </div>
+    );
+  }
 };
 
 export default Shop;
