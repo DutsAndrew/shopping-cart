@@ -4,6 +4,11 @@ body {
   font-family: sans-serif, Arial, Helvetica, Verdana
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 #game-banner-container {
   position: absolute;
   width: 100vw;

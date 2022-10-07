@@ -44,10 +44,24 @@ const App = () => {
       return;
     }
 
-    setCart({
-      cart: [...currentCart, newGame],
-      quantity: cart.quantity += Number(gameQuantity),
-    });
+    // validation to only store the price if it can be converted to a number after removing the '$'
+    const convertPriceToNumber = Number(gamePrice.slice(1));
+
+    if (isNaN(convertPriceToNumber) === false) {
+      setCart({
+        cart: [...currentCart, newGame],
+        quantity: cart.quantity += Number(gameQuantity),
+        total: cart.total += convertPriceToNumber,
+      });
+    }
+
+    if (isNaN(convertPriceToNumber) === true) {
+      setCart({
+        cart: [...currentCart, newGame],
+        quantity: cart.quantity += Number(gameQuantity),
+        total: cart.total,
+      });
+    }
 
     itemAddedAnimation(e.target.parentElement.parentElement);
   };
