@@ -17,7 +17,7 @@ const Cart = props => {
       </div>
       <div id="cart-total-container">
         <p id="total-amount-label-text">Your Total:</p>
-        <p id="total-amount-text">${cart.total}</p>
+        <p id="total-amount-text">${cart.total.toFixed(2)}</p>
         <button id="checkout-button">Proceed to Checkout</button>
       </div>
     </div>

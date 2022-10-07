@@ -51,7 +51,7 @@ const App = () => {
       setCart({
         cart: [...currentCart, newGame],
         quantity: cart.quantity += Number(gameQuantity),
-        total: cart.total += convertPriceToNumber,
+        total: cart.total += (convertPriceToNumber * Number(gameQuantity)),
       });
     }
 
