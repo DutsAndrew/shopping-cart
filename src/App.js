@@ -22,6 +22,7 @@ const App = () => {
   const addItem = (e) => {
     e.preventDefault();
     const currentCart = cart.cart;
+    const gameId = e.target.parentElement.parentElement.id;
     const gameImgSrc = e.target.parentElement.parentElement.children[0].currentSrc;
     const gameTitle = e.target.parentElement.parentElement.children[1].innerText;
     const gamePrice = e.target.parentElement.parentElement.children[2].innerText;
@@ -32,10 +33,11 @@ const App = () => {
     }
 
     const newGame = new Game(
+      gameId,
       gameImgSrc,
       gameTitle,
       gamePrice,
-      gameQuantity
+      gameQuantity,
     );
 
     const gameStatus = wasGameAlreadyAdded(cart.cart, newGame);

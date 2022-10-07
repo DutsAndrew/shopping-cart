@@ -1,5 +1,6 @@
 class Game {
-  constructor(img, title, price, quantity) {
+  constructor(id, img, title, price, quantity) {
+    this.id = id;
     this.img = img;
     this.title = title;
     this.price = price;

@@ -15,14 +15,15 @@
 
 #cart-title-container {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 #cart-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.25em;
+  font-size: 2em;
+  height: 1vh;
   width: 70vw;
 }
 
@@ -57,4 +58,81 @@
   border-radius: 4%;
   background-color: #2a475e;
   color: #c7d5e0;
+}
+
+#cart-game-tiles {
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex: auto;
+  margin: 0;
+  margin-top: 4%;
+  top: 80%;
+  right: 0.1%;
+  width: 70vw;
+  height: auto;
+  gap: 2%;
+}
+
+.cart-game-card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2%;
+  width: 22vw;
+  height: 40vh;
+  background-color: rgb(27, 40, 56, 1);
+  color: #c7d5e0;
+}
+
+.cart-game-card-img {
+  width: 15vw;
+  height: 10vh;
+}
+
+.cart-game-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  font-size: 1.1em;
+}
+
+.cart-game-card-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  font-size: 0.95em;
+}
+
+#increment-buttons-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  width: 20vw;
+  height: 2vh;
+}
+
+#increment-item, #decrement-item {
+  background-color: #c7d5e0;
+  color: #2a475e;
+}
+
+#remove-from-cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  height: 2vh;
+  margin-top: 2%;
+  background-color: #c7d5e0;
+  color: #2a475e;
 }

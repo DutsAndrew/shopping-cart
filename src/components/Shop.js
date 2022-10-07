@@ -96,7 +96,7 @@ const Shop = props => {
         <SearchBar submit={onSubmit} />
         <ul id='game-tiles'>
             {Array.isArray(gameLibrary.games[0]) && gameLibrary.games[0].map((game) => {
-              return <div className='game-card' key={game.appId} >
+              return <div id={game.appId} className='game-card' key={game.appId} >
                 <img className='game-card-img' src={game.imgUrl} alt={game.title} ></img>
                 <p className='game-card-title' >{game.title}</p>
                 <p className='game-card-price' >{convertGamePrice(game.price)}</p>

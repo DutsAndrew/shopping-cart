@@ -8,12 +8,26 @@ const Cart = props => {
   useEffect(() => {
     console.log(cart);
   }, [cart]);
-  
 
   return (
     <div id="cart-container">
       <div id="cart-title-container">
         <p id="cart-title">Cart</p>
+        <ul id="cart-game-tiles">
+          {cart.cart.map((game) => {
+            return <div className="cart-game-card" key={game.id}>
+              <img className='cart-game-card-img' src={game.img} alt={game.title} ></img>
+                <p className='cart-game-card-title' >{game.title}</p>
+                <p className='cart-game-card-price' >{game.price}</p>
+                <p className="cart-game-card-quantity">Quantity: {game.quantity}</p>
+                <div id="increment-buttons-container">
+                  <button id="increment-item">Add Item</button>
+                  <button id="decrement-item">Remove Item</button>
+                </div>
+                <button id="remove-from-cart-button">Remove from Cart</button>
+            </div>
+          })}
+        </ul>
       </div>
       <div id="cart-total-container">
         <p id="total-amount-label-text">Your Total:</p>
