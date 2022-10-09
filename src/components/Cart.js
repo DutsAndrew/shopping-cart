@@ -3,7 +3,7 @@ import '../style/Cart.css';
 
 const Cart = props => {
 
-  const { cart } = props;
+  const { cart, incrementGame, decrementGame, removeGame } = props;
 
   useEffect(() => {
     console.log(cart);
@@ -21,10 +21,10 @@ const Cart = props => {
                 <p className='cart-game-card-price' >{game.price}</p>
                 <p className="cart-game-card-quantity">Quantity: {game.quantity}</p>
                 <div id="increment-buttons-container">
-                  <button id="increment-item">Add Item</button>
-                  <button id="decrement-item">Remove Item</button>
+                  <button id="increment-item" onClick={incrementGame} >Add Item</button>
+                  <button id="decrement-item" onClick={decrementGame} >Remove Item</button>
                 </div>
-                <button id="remove-from-cart-button">Remove from Cart</button>
+                <button id="remove-from-cart-button" onClick={removeGame} >Remove from Cart</button>
             </div>
           })}
         </ul>

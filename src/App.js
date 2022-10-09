@@ -26,7 +26,7 @@ const App = () => {
     const gameImgSrc = e.target.parentElement.parentElement.children[0].currentSrc;
     const gameTitle = e.target.parentElement.parentElement.children[1].innerText;
     const gamePrice = e.target.parentElement.parentElement.children[2].innerText;
-    const gameQuantity = e.target.parentElement.parentElement.children[3][0].value;
+    const gameQuantity = Number(e.target.parentElement.parentElement.children[3][0].value);
 
     if (gameQuantity === '0' || gameQuantity < 0) {
       return;
@@ -72,6 +72,100 @@ const App = () => {
     displayCartAmount(cart.quantity);
   }, [cart])
 
+  const incrementGame = (e) => {
+    const gameTitle = e.target.parentElement.parentElement.children[1].innerText;
+    cart.cart.forEach((game) => {
+      if (game.title === gameTitle) {
+        const currentCart = cart.cart;
+        let gameToChange = currentCart[currentCart.indexOf(game)];
+        gameToChange.quantity = gameToChange.quantity + 1;
+        currentCart[currentCart.indexOf(game)] = gameToChange;
+
+        // if game is free
+        if (game.price.length > 8 || game.price.length === 0) {
+          setCart({
+            cart: currentCart,
+            quantity: cart.quantity += 1,
+            total: cart.total,
+          });
+          return;
+        }
+        setCart({
+          cart: currentCart,
+          quantity: cart.quantity += 1,
+          total: cart.total += Number(gameToChange.price.slice(1)),
+        });
+      };
+    });
+  };
+
+  const decrementGame = (e) => {
+    const gameTitle = e.target.parentElement.parentElement.children[1].innerText;
+    cart.cart.forEach((game) => {
+      if (game.title === gameTitle) {
+        const currentCart = cart.cart;
+        let gameToChange = currentCart[currentCart.indexOf(game)];
+        if ((Number(gameToChange.quantity) - 1) < 0) {
+          removeGame(gameTitle);
+          return;
+        }
+        gameToChange.quantity = gameToChange.quantity - 1;
+        currentCart[currentCart.indexOf(game)] = gameToChange;
+
+        // if game is free
+        if (game.price.length > 8 || game.price.length === 0) {
+          setCart({
+            cart: currentCart,
+            quantity: cart.quantity -= 1,
+            total: cart.total,
+          });
+          return;
+        }
+        setCart({
+          cart: currentCart,
+          quantity: cart.quantity -= 1,
+          total: cart.total -= Number(gameToChange.price.slice(1)),
+        });
+      };
+    });
+  }
+
+  const removeGame = (e) => {
+    let currentCart = cart.cart;
+    let gameTitle;
+
+    // handles game removal when game title has been passed from decrementGame to prevent a negative quantity
+    if (typeof e === 'string') {
+      gameTitle = e;
+    };
+
+    // handles game removal on remove from cart button click
+    if (typeof e === 'object') {
+      gameTitle = e.target.parentElement.children[1].innerHTML;
+    }
+
+    cart.cart.forEach((game) => {
+      if (game.title === gameTitle) {
+        currentCart.splice(currentCart.indexOf(game), 1);
+
+        // if game is free
+        if (game.price.length > 8 || game.price.length === 0) {
+          setCart({
+            cart: currentCart,
+            quantity: cart.quantity -= 1 * game.quantity,
+            total: cart.total,
+          });
+          return;
+        }
+        setCart({
+          cart: currentCart,
+          quantity: cart.quantity -= 1 * game.quantity,
+          total: cart.total -= Number(game.price.slice(1) * game.quantity),
+        });
+      };
+    });
+  };
+
   return (
     <BrowserRouter>
       <Nav />
@@ -79,7 +173,13 @@ const App = () => {
         <Route path='/' element={<Hero />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Shop' element={<Shop addItem={addItem} />} />
-        <Route path='/Cart' element={<Cart cart={cart} />} />
+        <Route path='/Cart' 
+          element={<Cart cart={cart}
+            incrementGame={incrementGame}
+            decrementGame={decrementGame}
+            removeGame={removeGame}
+          />}
+        />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
