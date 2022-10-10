@@ -97,3 +97,19 @@ a:selection {
   height: 90%;
   margin-top: 8%;
 }
+
+.cart-quantity-meter {
+  position: absolute;
+  left: 92%;
+  top: 10%;
+  width: 1.8vw;
+  height: 1.8vh;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 0.9em;
+  color: #2a475e;
+  background-color: #c7d5e0;
+}

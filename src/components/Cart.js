@@ -5,9 +5,9 @@ const Cart = props => {
 
   const { cart, incrementGame, decrementGame, removeGame } = props;
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  const checkoutMessage = () => {
+    alert('this is not a real steam site, if you would like to purchase this game, please visit the actual steam store');
+  }
 
   return (
     <div id="cart-container">
@@ -32,7 +32,7 @@ const Cart = props => {
       <div id="cart-total-container">
         <p id="total-amount-label-text">Your Total:</p>
         <p id="total-amount-text">${Math.abs(cart.total.toFixed(2))}</p>
-        <button id="checkout-button">Proceed to Checkout</button>
+        <button id="checkout-button" onClick={checkoutMessage} >Proceed to Checkout</button>
       </div>
     </div>
   );

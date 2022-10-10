@@ -5,7 +5,6 @@ import Hero from "./components/Hero";
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Nav from "./components/Nav";
-import Footer from "./components/Footer";
 import { wasGameAlreadyAdded } from "./scripts/app-helper-functions";
 import { itemAddedAnimation } from "./scripts/app-helper-functions";
 import { Game } from "./scripts/app-helper-functions";
@@ -188,7 +187,6 @@ const App = () => {
           />}
         />
       </Routes>
-      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
