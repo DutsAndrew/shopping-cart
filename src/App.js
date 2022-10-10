@@ -119,13 +119,20 @@ const App = () => {
             quantity: cart.quantity -= 1,
             total: cart.total,
           });
+          if (game.quantity === 0) {
+            removeGame(gameTitle);
+          }
           return;
         }
+
         setCart({
           cart: currentCart,
           quantity: cart.quantity -= 1,
           total: cart.total -= Number(gameToChange.price.slice(1)),
         });
+        if (game.quantity === 0) {
+          removeGame(gameTitle);
+        }
       };
     });
   }
@@ -152,14 +159,14 @@ const App = () => {
         if (game.price.length > 8 || game.price.length === 0) {
           setCart({
             cart: currentCart,
-            quantity: cart.quantity -= 1 * game.quantity,
+            quantity: cart.quantity -= (1 * game.quantity),
             total: cart.total,
           });
           return;
         }
         setCart({
           cart: currentCart,
-          quantity: cart.quantity -= 1 * game.quantity,
+          quantity: cart.quantity -= (1 * game.quantity),
           total: cart.total -= Number(game.price.slice(1) * game.quantity),
         });
       };
