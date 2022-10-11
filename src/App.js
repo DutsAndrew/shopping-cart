@@ -176,7 +176,7 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path='/' exact element={<Hero />} />
+        <Route exact path='/' element={<Hero />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Shop' element={<Shop addItem={addItem} />} />
         <Route path='/Cart' 
