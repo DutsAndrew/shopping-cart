@@ -176,10 +176,10 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route exact path='/' element={<Hero />} />
-        <Route path='/Home' element={<Home />} />
-        <Route path='/Shop' element={<Shop addItem={addItem} />} />
-        <Route path='/Cart' 
+        <Route path='/shopping-cart' exact element={<Hero />} />
+        <Route path='/shopping-cart/Home' exact element={<Home />} />
+        <Route path='/shopping-cart/Shop' exact element={<Shop addItem={addItem} />} />
+        <Route path='/shopping-cart/Cart' exact
           element={<Cart cart={cart}
             incrementGame={incrementGame}
             decrementGame={decrementGame}
