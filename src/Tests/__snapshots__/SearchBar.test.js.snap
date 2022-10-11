@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component renders search form 1`] = `
+<div>
+  <form
+    id="search-form"
+  >
+    <input
+      id="search-input"
+      placeholder="Elden Ring"
+      type="text"
+    />
+    <button
+      id="search-button"
+      type="submit"
+    >
+      Find Game
+    </button>
+  </form>
+</div>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shop component renders shop loading image 1`] = `
+<div>
+  <div
+    id="loading-container"
+  >
+    <p
+      id="loading-message"
+    >
+      Loading!
+    </p>
+    <div
+      id="loading-bar"
+    />
+  </div>
+</div>
+`;

@@ -55,19 +55,3 @@ body {
     transform: rotate(359deg);
   }
 }
-
-.cart-quantity-meter {
-  position: absolute;
-  left: 92.2%;
-  top: 10%;
-  width: 1.75vw;
-  border-radius: 50%;
-  height: 1.75vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  font-size: 1em;
-  color: #2a475e;
-  background-color: #c7d5e0;
-}
