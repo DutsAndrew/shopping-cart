@@ -1,5 +1,10 @@
 # shopping-cart
 
+Live Link: https://dutsandrew.github.io/shopping-cart/Shop
+
+![steam store ref](https://user-images.githubusercontent.com/94728848/213885643-c68030fc-b2c0-4b1e-947a-c0f7069a9349.png)
+
+
 How To:
 1. Use the Nav bar at the top of the screen to navigate between the "Home, Shop, and Cart" pages.
 2. On the Shop page you can browse Steam Game specials and or search games on your own.
